@@ -27,7 +27,7 @@ var myApp = {
 
 	    // Sieve the Two's and Sieve the Three's, The Sieve of Eratosthenes.
 		//When the multiples sublime,The numbers that remain are Prime.
-		//Only way to explain this function is the poem above.
+		//The best way to explain this for loop is the poem above.
 	    for (var i = 2; i <= Math.sqrt(max); i++) {
 	        if (arr[i]) {
 	            for (var j = i * i; j < max; j += i) {
@@ -37,6 +37,7 @@ var myApp = {
 	    }
 	    
 	    //For every true element in the array push the index value to a new array 
+	    //E.g [true,false,true] == [0,2], Only th true indexes are pushed
 	    for (var i = 2; i < max; i++) {
 	        if(arr[i]) {
 	            newArray.push(i);
