@@ -1,13 +1,16 @@
+//*****MODELLING REAL WORLD OBJECTS USING JAVASCRIPT OOP*****
+
 //1) Declare an object (Vehicle Object)
 //2) Instanciate the object 
 //3) Use of inheritance (to make Lorry, Yatch and Bike Class)
-//4) Use of Constructors 
+//4) Use of Constructors (to make sure each object instances has well defined attributes)
 //5) Make instances of the Vehicle object (Car, MotorCycle, Boat)
 //6) Use Prototypes to extend the function properties
 //3) Add Public and Private methods to the object (Using this, var)
 //7) Access Public methods from private methods in vehicle
 //8) Access Private methods from public methods in vehicle
-//9) 
+//9) Change object attributes via specific functions (ChangeSound(), changeColor())
+//10) 
 
 
 //Declare an object (Vehicle Object)
@@ -26,6 +29,7 @@ function Vehicle (type, manufacturer, meansOfTransportation, color, noOfWheels) 
         return "Private method";
     }
 
+    /*
     //Access Private methods from public methods in vehicle
     this.publicMethodAccessPrivateMethod(){
         return privateMethod(); //returns "Private method"
@@ -35,6 +39,7 @@ function Vehicle (type, manufacturer, meansOfTransportation, color, noOfWheels) 
     var publicMethodAccessPublicMethod(){
         return self.privateMethod(); //returns "Public method"
     }
+    */
 }
 
 //Use Prototypes to extend the function properties
@@ -44,7 +49,9 @@ Vehicle.prototype = {
     constructor: Vehicle,
 
     showDetails:function ()  {
-        this.details = 'this '+this.color+ ' '+ this.type +' was manufactured by '+this.manufacturer+', it travels by '+this.meansOfTransportation+' and is powered by '+this.energySource;
+        return this.details = 'this '+this.color+ ' '+ this.type +' was manufactured by '
+                        +this.manufacturer+', it travels by '+this.meansOfTransportation+
+                        ' and is powered by '+this.energySource;
     },
     changeEnergySource:function (engSource)  {
         this.energySource = engSource;
@@ -53,9 +60,14 @@ Vehicle.prototype = {
     changeColor:function (newColor)  {
         this.color = newColor;
         return "New Color: " + this.color;
-    }, 
-    publicFunction: function (){
-        return "fake";
+    },
+    makeSound: function (){
+        this.sound = "Vroommmmmmm";
+        return "The "+this.type+" makes the "+this.sound+" sound";
+    },
+    changeSound: function(newSound){
+        this.sound = newSound;
+        return "New Sound: " + this.sound;
     }
 };
 
@@ -68,8 +80,8 @@ var Yatch = new Vehicle('Boat','Bombardier', 'water', 'white', 0);
 //Use of inheritance to access the showDetails function
 console.log(Lorry.showDetails())
 
-console.log(Lorry.publicFunction());
-console.log(Lorry.privateFunction());
+console.log(Lorry.publicMethod()); //returns "Public Method"
+console.log(Lorry.privateMethod()); //error
 
 
 
