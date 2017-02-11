@@ -43,6 +43,18 @@ describe("Data types tests ", function() {
       expect(myApp.dataTypes(100)).toBe('equal to 100');
     });
 
+    it("should return 'less than 100' for 1", function() {
+      expect(myApp.dataTypes(1)).toBe('less than 100');
+    });
+
+    it("should return 'more than 100' for 999", function() {
+      expect(myApp.dataTypes(999)).toBe('more than 100');
+    });
+
+    it("should return 'more than 100' for 100.2", function() {
+      expect(myApp.dataTypes(100.2)).toBe('more than 100');
+    });
+
 
   });
 
@@ -60,6 +72,18 @@ describe("Data types tests ", function() {
       expect(myApp.dataTypes('555')).toBe(3);
     });
 
+    it("should return the length of `love`", function() {
+      expect(myApp.dataTypes('love')).toBe(4);
+    });
+
+    it("should return the length of 'qwerty'", function() {
+      expect(myApp.dataTypes('qwerty')).toBe(6);
+    });
+
+    it("should return the length of `1234567890`", function() {
+      expect(myApp.dataTypes('1234567890')).toBe(10);
+    });
+
   });
 
   describe("Case for arrays", function() {
@@ -73,6 +97,12 @@ describe("Data types tests ", function() {
     });
     it("should return `undefined` for `[4, 9]`", function() {
       expect(myApp.dataTypes([4, 9])).not.toBeDefined();
+    });
+    it("should return `undefined` for `[999, 999]`", function() {
+      expect(myApp.dataTypes([999, 999])).not.toBeDefined();
+    });
+    it("should return `undefined` for `[4, 9]`", function() {
+      expect(myApp.dataTypes(['0' , '0'])).not.toBeDefined();
     });
   });
 

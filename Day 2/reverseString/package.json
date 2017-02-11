@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "reversestring",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "commander": "^2.9.0"
+  "devDependencies": {
+    "jasmine": "^2.5.3"
   }
 }
