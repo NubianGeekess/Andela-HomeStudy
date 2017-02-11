@@ -1,0 +1,23 @@
+{
+<<<<<<< HEAD:Day 2/CommandLineApplication/package.json
+  "name": "idika",
+=======
+  "name": "countwords",
+>>>>>>> master:Day 2/countWords/package.json
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+<<<<<<< HEAD:Day 2/CommandLineApplication/package.json
+  "author": "jed",
+  "license": "ISC"
+=======
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  }
+>>>>>>> master:Day 2/countWords/package.json
+}
