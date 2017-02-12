@@ -12,8 +12,68 @@ is the number you are to find. The search function should return an object, whic
 The `.search` function should implement the _binary search algorithm_. Each time you iterate, you should increase
  the count, to test how efficient your implementation is.
 */
-var myApp ={
 
-}
+Array.prototype.toTwenty = function () {
+  
+	for(var i = 1; i <= 20; i++){
+	    this.push(i);
+	}
+	return this;
+};
 
-module.exports =myApp;
+Array.prototype.toForty = function () {
+  	
+  	var i = 2;
+	while( i <= 40){
+	    this.push(i);
+	    i+=2;
+	}
+	return this;
+};
+
+Array.prototype.search = function (searchElement) {
+this.count = 0;
+this.index = -1;
+
+	var minIndex = 0;
+    var maxIndex = this.length - 1;
+    var currentIndex;
+    var currentElement;
+    while (minIndex <= maxIndex) {
+        currentIndex = Math.floor((minIndex + maxIndex) / 2);
+        currentElement = this[currentIndex];
+        if (this[minIndex]  === searchElement) {
+             this.index = minIndex;
+              break;
+         }
+         else if (this[maxIndex]  === searchElement){
+             this.index = maxIndex;
+              break;
+         }
+        if (currentElement < searchElement) {
+            minIndex = currentIndex + 1;
+        }
+        else if (currentElement > searchElement) {
+            maxIndex = currentIndex - 1;
+        }
+        else {
+            this.index = currentIndex;
+            break;
+        }
+	this.count++;
+    }
+
+return this;
+};
+
+Array.prototype.toOneThousand = function () {
+  
+	var i = 10;
+	while( i <= 1000){
+	    this.push(i);
+	    i+=10;
+	}
+	return this;
+};
+var myApp = {};
+module.exports=myApp;
