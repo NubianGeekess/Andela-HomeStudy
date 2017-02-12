@@ -6,84 +6,63 @@
 //4) Use of Constructors (to make sure each object instances has well defined attributes)
 //5) Make instances of the Vehicle object (Car, MotorCycle, Boat)
 //6) Use Prototypes to extend the function properties
-//3) Add Public and Private methods to the object (Using this, var)
-//7) Access Public methods from private methods in vehicle
-//8) Access Private methods from public methods in vehicle
-//9) Change object attributes via specific functions (ChangeSound(), changeColor())
-//10) 
+//7) Add Public and Private methods to the object (Using this, var)
+//8) Change object attributes via specific functions (ChangeSound(), changeColor())
+//9) Use default parameters for noOfWheels and type
+//10)
 
-
-//Declare an object (Vehicle Object)
-function Vehicle (type, manufacturer, meansOfTransportation, color, noOfWheels) {
-    this.manufacturer = manufacturer;
-    this.meansOfTransportation = meansOfTransportation;
-    this.color = color;
-    this.type = type;
-    this.noOfWheels = noOfWheels;
-    this.energySource = 'Fuel';
-    this.details = '';
-    this.publicMethod = function() {
-        return "Public method";
-    }
-    var privateMethod = function() {
-        return "Private method";
-    }
-
-    /*
-    //Access Private methods from public methods in vehicle
-    this.publicMethodAccessPrivateMethod(){
-        return privateMethod(); //returns "Private method"
-    }
-
-    //Access Public methods from private methods in vehicle
-    var publicMethodAccessPublicMethod(){
-        return self.privateMethod(); //returns "Public method"
-    }
-    */
+//'use strict';
+var myApp = {
+    //Declare an object (Vehicle Object)
+    Vehicle: function(manufacturer, meansOfTransportation, color, noOfWheels = 5, type = "General") {
+        this.manufacturer = manufacturer;
+        this.meansOfTransportation = meansOfTransportation;
+        this.color = color;
+        this.type = type;
+        this.noOfWheels = noOfWheels;
+        this.energySource = 'Fuel';
+        this.sound = 'Vrommmmmmmmm';
+        this.details = '';
+        this.speed = 0;
+        if (this.type == 'Car') {
+            this.noOfWheels = 4;
+        }
+        if (this.type == 'Boat') {
+            this.noOfWheels = 0;
+        }
+        if (this.type == 'MotorCycle') {
+            this.noOfWheels = 2;
+        }
+        this.publicMethod = function() {
+            return "Public method";
+        }
+        var privateMethod = function() {
+            return "Private method";
+        }
+        this.showDetailsfunction = function () {
+            return this.details = 'This ' + this.color + ' ' + this.type + ' was manufactured by ' +
+                this.manufacturer + ', it travels by ' + this.meansOfTransportation +
+                ' and is powered by ' + this.energySource;
+        }
+        this.changeEnergySource = function (engSource) {
+            this.energySource = engSource;
+            return this.energySource;
+        }
+        this.changeColor =function (newColor) {
+            this.color = newColor;
+            return this.color;
+        }
+        this.makeSound= function () {
+            return "The " + this.type + " makes the " + this.sound + " sound";
+        }
+        this.changeSound =function (newSound) {
+            this.sound = newSound;
+            return "New Sound: " + this.sound;
+        }
+        this.drive = function(newSpeed) {
+            this.speed = newSpeed;
+            return this.speed + " Km/h";
+        }
+    },
 }
-
-//Use Prototypes to extend the function properties
-Vehicle.prototype = {
-
-    //Use of Constructors 
-    constructor: Vehicle,
-
-    showDetails:function ()  {
-        return this.details = 'this '+this.color+ ' '+ this.type +' was manufactured by '
-                        +this.manufacturer+', it travels by '+this.meansOfTransportation+
-                        ' and is powered by '+this.energySource;
-    },
-    changeEnergySource:function (engSource)  {
-        this.energySource = engSource;
-        return "New Energy source: " + this.energySource;
-    },
-    changeColor:function (newColor)  {
-        this.color = newColor;
-        return "New Color: " + this.color;
-    },
-    makeSound: function (){
-        this.sound = "Vroommmmmmm";
-        return "The "+this.type+" makes the "+this.sound+" sound";
-    },
-    changeSound: function(newSound){
-        this.sound = newSound;
-        return "New Sound: " + this.sound;
-    }
-};
-
-//Make instances of the Vehicle object (Car, MotorCycle, Boat)
-var Lorry = new Vehicle('Car','Ford','Road','Blue', 4);
-var Bike = new Vehicle('MotorCycle','Nissan','Road','Black', 2);
-var Yatch = new Vehicle('Boat','Bombardier', 'water', 'white', 0);
-
-
-//Use of inheritance to access the showDetails function
-console.log(Lorry.showDetails())
-
-console.log(Lorry.publicMethod()); //returns "Public Method"
-console.log(Lorry.privateMethod()); //error
-
-
-
-
-
+module.exports = myApp;
