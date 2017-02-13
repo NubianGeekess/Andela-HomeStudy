@@ -116,6 +116,26 @@ var myApp = require('../src/dataType.js');
                 };
                 expect(myApp.dataTypes(callback)).toBe('called callback');
             });
+
+            it("should call the `helloworld` function with argument true, and return `hello world`", function() {
+                var helloworld = function(arg) {
+                    expect(arg).toBeTruthy();
+                    if (arg === true) {
+                        return 'hello world';
+                    }
+                };
+                expect(myApp.dataTypes(helloworld)).toBe('hello world')
+            });
+
+            it("should call the `love` function with argument true, and return `love`", function() {
+                var love = function(arg) {
+                    expect(arg).toBeTruthy();
+                    if (arg === true) {
+                        return 'love';
+                    }
+                };
+                expect(myApp.dataTypes(love)).toBe('love')
+            });
         });
     });
 
