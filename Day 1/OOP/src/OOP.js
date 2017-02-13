@@ -3,13 +3,10 @@
 //1) Declare an object (Vehicle Object)
 //2) Instanciate the object 
 //3) Use of inheritance (to make Lorry, Yatch and Bike Class)
-//4) Use of Constructors (to make sure each object instances has well defined attributes)
-//5) Make instances of the Vehicle object (Car, MotorCycle, Boat)
-//6) Use Prototypes to extend the function properties
-//7) Add Public and Private methods to the object (Using this, var)
-//8) Change object attributes via specific functions (ChangeSound(), changeColor())
-//9) Use default parameters for noOfWheels and type
-//10)
+//4) Make instances of the Vehicle object (Car, MotorCycle, Boat)
+//5) Add Public and Private methods to the object (Using this, var)
+//6) Change object attributes via specific functions (ChangeSound(), changeColor())
+//7) Use default parameters for noOfWheels and type
 
 //'use strict';
 var myApp = {
@@ -39,23 +36,23 @@ var myApp = {
         var privateMethod = function() {
             return "Private method";
         }
-        this.showDetailsfunction = function () {
+        this.showDetailsfunction = function() {
             return this.details = 'This ' + this.color + ' ' + this.type + ' was manufactured by ' +
                 this.manufacturer + ', it travels by ' + this.meansOfTransportation +
                 ' and is powered by ' + this.energySource;
         }
-        this.changeEnergySource = function (engSource) {
+        this.changeEnergySource = function(engSource) {
             this.energySource = engSource;
             return this.energySource;
         }
-        this.changeColor =function (newColor) {
+        this.changeColor = function(newColor) {
             this.color = newColor;
             return this.color;
         }
-        this.makeSound= function () {
+        this.makeSound = function() {
             return "The " + this.type + " makes the " + this.sound + " sound";
         }
-        this.changeSound =function (newSound) {
+        this.changeSound = function(newSound) {
             this.sound = newSound;
             return "New Sound: " + this.sound;
         }
