@@ -1,26 +1,34 @@
+/*
+A simple command line application that consumes a Public API using a HTTP client library.
+*/
+
 //1) View your most recent repositories
-//2) Create a Repository
+//2) Create a RepositoryCreate
 //3) Delete a Repository
-//4) Create a Github Gist
-//5) Delete a Githib Gist
+//4) Edit a Repository Name
+
+//Require the NPM package "Request" to make HTTP request from the CLI
 var request = require('request');
+
+//Require the NPM package "readline" to read inputs from the CLI
 var readline = require('readline');
-var apiToken = '4b3a3ba1a18e5af6688bae27e219244ec0e258ef ';
+
+//My Personal authorizaton token
+var apiToken = 'b91b5fdaa822ddf3291899041b301bdf5ebcb63d';
 var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
-var gistID;
 
 rl.question('Enter your github username: ', function(username) {
     var url = 'https://api.github.com/users/' + username + "/repos";
     var options = {
-        url: url,
-        headers: {
-            'User-Agent': 'request'
+            url: url,
+            headers: {
+                'User-Agent': 'request'
+            }
         }
-    }
-
+        //Makes Get request to /Users/:Username/repos
     request.get(options, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log("The name of your most recent repo is " + (JSON.parse(response.body)[0]).full_name);
@@ -45,6 +53,7 @@ rl.question('Enter your github username: ', function(username) {
                     })
                 }
 
+                //Makes POST request to user/repos
                 request.post(options, function(error, response, body) {
                     if (!error) {
                         console.log("Your new repository " + JSON.parse(response.body).full_name + " has been created");
@@ -55,21 +64,21 @@ rl.question('Enter your github username: ', function(username) {
                         rl.question('Edit the created repository name to: ', function(newName) {
                             var url = 'https://api.github.com/repos/' + username + '/' + createRepoName;
                             var options = {
-                                url: url,
-                                headers: {
-                                    'User-Agent': 'request',
-                                    'Authorization': 'token ' + apiToken
-                                },
-                                form: JSON.stringify({
-                                    "name": newName,
-                                    "description": "This repository was edited via Github API",
-                                    "homepage": "https://github.com",
-                                    "private": false,
-                                    "has_issues": true,
-                                    "has_wiki": true
-                                })
-                            }
-
+                                    url: url,
+                                    headers: {
+                                        'User-Agent': 'request',
+                                        'Authorization': 'token ' + apiToken
+                                    },
+                                    form: JSON.stringify({
+                                        "name": newName,
+                                        "description": "This repository was edited via Github API",
+                                        "homepage": "https://github.com",
+                                        "private": false,
+                                        "has_issues": true,
+                                        "has_wiki": true
+                                    })
+                                }
+                                //Makes PATCH request to repos/:username/:repoName
                             request.patch(options, function(error, response, body) {
                                 if (!error) {
                                     console.log("Your repository name has been changed to " + JSON.parse(response.body).full_name);
@@ -87,6 +96,7 @@ rl.question('Enter your github username: ', function(username) {
                                             }
                                         }
 
+                                        //Makes DELETE request to repos/:Username/:repoName
                                         request.delete(options, function(error, response, body) {
                                             if (!error) {
                                                 console.log("Repository Deleted");
@@ -102,7 +112,6 @@ rl.question('Enter your github username: ', function(username) {
                     }
                 });
             }); //first Question
-
         } // first if statement
-    })
-})
+    });
+});
