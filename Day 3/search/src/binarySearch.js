@@ -37,7 +37,7 @@ function createArray(inc, max) {
     };
 
     Array.prototype.search = function(searchNumber) {
-    
+    	//TODO
     };
-    
+
 })()
