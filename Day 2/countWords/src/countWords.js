@@ -18,6 +18,11 @@ var myApp = {
         //	\n  ---> To use all new lines as a split delimiter 
         //	\t  ---> To use all new tabs as a split delimiter 
         sentence.split(/\s+|\n|\t/).forEach(function(element) {
+        	/*
+        	 loops through the sentence type int the element and check if the element 
+        	 is a truthy value and has duplicates, if it is a truthy value increase 
+        	 the element by 1, if it is not a truthy value set it equal to 0 and increase it by 1.
+			*/
             obj[element] = (+obj[element] || 0) + 1;
         });
         return obj;
