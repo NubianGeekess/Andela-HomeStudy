@@ -12,15 +12,16 @@
 var myApp = {
 
     words: function(sentence) {
-		        var arr = {};
-		        //	\s+ ---> To use all spaces of lenght 1 or more than 1 as a split delimiter
-		        //	\n  ---> To use all new lines as a split delimiter 
-		        //	\t  ---> To use all new tabs as a split delimiter 
-		        sentence.split(/\s+|\n|\t/).forEach(function(element) {
-		            arr[element] = arr[element] ? ++arr[element] : 1;
-		        });
-		        return arr;
-		    }
-		}
+        var obj = {};
+        //arr.prototype.toString = null;
+        //	\s+ ---> To use all spaces of lenght 1 or more than 1 as a split delimiter
+        //	\n  ---> To use all new lines as a split delimiter 
+        //	\t  ---> To use all new tabs as a split delimiter 
+        sentence.split(/\s+|\n|\t/).forEach(function(element) {
+            obj[element] = (+obj[element] || 0) + 1;
+        });
+        return obj;
+    }
+}
 
 module.exports = myApp;
