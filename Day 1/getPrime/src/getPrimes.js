@@ -14,7 +14,7 @@ var myApp = {
 	    if(typeof(max) === 'number' && max >= 2){
 		    var arr = [];
 		    var newArray = [];
-		    var error;
+		    var answer;
 
 		    // Set all elements between 0 to max in the array to true 
 		    for (var i = 0; i <= max; i++) {
@@ -40,13 +40,13 @@ var myApp = {
 		        }
 		    }
 
-		    return newArray;
+		    answer =  newArray;
 	    }else if (typeof(max) === 'number' && max < 2) {
-	    	error = "Your max number must be greater than 1"
+	    	answer = "Your max number must be greater than 1"
 	    }else{
-	    	error = "your data type must be a number"
+	    	answer = "your data type must be a number"
 	    }
-	    return error;
+	    return answer;
 	}
 }
 
