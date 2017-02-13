@@ -9,27 +9,40 @@ var myApp = {
     findMissing: function(arr1, arr2) {
         var result = [];
         var equal;
-        if (arr1.length === 0 || arr2.length === 0) {
-            result.push(0);
-        } else if (arr1.length === arr2.length) {
-            for (var i = 0; i < arr2.length; i++) {
-                arr1[i] !== arr2[i] ? equal = false : equal = true;
-            }
-            if (equal) {
+
+        //cCheck if both arr1 and arr2 are arrays
+        if (Array.isArray(arr1) && Array.isArray(arr2)) {
+            
+            //If arrays are empty return 0
+            if (arr1.length === 0 || arr2.length === 0) {
                 result.push(0);
+                //If arrays are of equal length and have same elements return 0
+            } else if (arr1.length === arr2.length) {
+                for (var i = 0; i < arr2.length; i++) {
+                    arr1[i] !== arr2[i] ? equal = false : equal = true;
+                }
+                if (equal) {
+                    result.push(0);
+                }
+                //ELSE
+            } else {
+                //For any element of arr1 not in arr2 push element to result
+                for (i = 0; i < arr1.length; i++) {
+                    if (arr2.indexOf(arr1[i]) === -1) {
+                        result.push(arr1[i]);
+                    }
+                }
+                ////For any element of arr2 not in arr1 push element to result
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) === -1) {
+                        result.push(arr2[i]);
+                    }
+                }
             }
         } else {
-            for (i = 0; i < arr1.length; i++) {
-                if (arr2.indexOf(arr1[i]) === -1) {
-                    result.push(arr1[i]);
-                }
-            }
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) === -1) {
-                    result.push(arr2[i]);
-                }
-            }
+            result.push('Your datatypes must be Arrays')
         }
+        //return result
         return result[0];
     }
 }
