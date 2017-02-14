@@ -99,6 +99,60 @@ require('../src/binarySearch.js');
                 expect(search.index).toBe(-1);
             });
 
+            it('should return {count: < /* array length */, index: -1} for 100009 ', function() {
+                var search = tenToOneThousand.search(100009);
+                expect(search.count).toBeLessThan(search.length);
+                expect(search.index).toBe(-1);
+            });
+
+            it('should return {count: < /* array length */, index: -1} for 10001 ', function() {
+                var search = tenToOneThousand.search(10001);
+                expect(search.count).toBeLessThan(search.length);
+                expect(search.index).toBe(-1);
+            });
+
+            it('should return {count: < /* array length */, index: -1} for 1000094 ', function() {
+                var search = tenToOneThousand.search(1000094);
+                expect(search.count).toBeLessThan(search.length);
+                expect(search.index).toBe(-1);
+            });
+
+        });
+
+        describe('Ensure only valid datatypes are accepted', function() {
+
+            it('should return "You can only search for integers" for true', function() {
+                var search = tenToOneThousand.search(null);
+                expect(search.index).toBe("You can only search for integers");
+            });
+
+            it('should return "You can only search for integers" for false', function() {
+                var search = tenToOneThousand.search(undefined);
+                expect(search.index).toBe("You can only search for integers");
+            });
+
+            it('should return "You can only search for integers" for null', function() {
+                var search = tenToOneThousand.search(true);
+                expect(search.index).toBe("You can only search for integers");
+            });
+
+            it('should return "You can only search for integers" for false', function() {
+                var search = tenToOneThousand.search(false);
+                expect(search.index).toBe("You can only search for integers");
+            });
+
+            it('should return "You can only search for integers" for []', function() {
+                var search = tenToOneThousand.search([]);
+                expect(search.index).toBe("You can only search for integers");
+            });
+
+            it('should return "You can only search for integers" for {}', function() {
+                var search = tenToOneThousand.search({});
+                expect(search.index).toBe("You can only search for integers");
+            });it('should return "You can only search for integers" for "hello world"', function() {
+                var search = tenToOneThousand.search("hello world");
+                expect(search.index).toBe("You can only search for integers");
+            });
         });
     });
 
