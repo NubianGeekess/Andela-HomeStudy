@@ -1,0 +1,163 @@
+body {
+	font-size: 10pt;
+	font-family: arial, sans-serif;
+}
+
+a {
+	color: blue;
+
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	font-weight: bold;
+	font-family: arial;
+}
+
+
+/* Top Toolbar */
+.search2 {
+  width: 45vw;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC) no-repeat;
+  background-position: 98.5%;
+  background-size: 1.5em;
+}
+
+.toolbar {
+	height: 50px;
+}
+
+.toolbar nav {
+	float:right;
+	margin: 7px 21px;
+}
+
+.toolbar nav a {
+	margin: 3px 6px;
+	color: #404040;
+}
+
+.toolbar nav a:hover {
+	color: #111111;
+}
+
+.toolbar nav button {
+	padding: 7px 12px;
+	border-radius: 2px;
+/*	background-color: #4585F1;*/
+	background-image: -moz-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+	background-image: -o-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #4585F1), color-stop(1, #0097DE));
+	background-image: -webkit-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+	color: white;
+	border: 1px darkblue;
+	font-size: 9.5pt;
+}
+
+.toolbar nav button:hover {
+	box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+}
+
+.toolbar nav img {
+	margin: 0 7.5px;
+	height: 22px;
+	position: relative;
+	top: 7px;}
+
+/* End of Top Toolbar */
+/* Search */
+
+.search {
+	text-align: center;
+	clear: both;
+	margin: 11% 0 0 0;
+}
+
+.logo {
+	max-width: 25%;
+	margin: 0 auto;
+}
+
+.search img {
+	margin-bottom: 3%;
+	max-width: 100%;
+}
+
+.search input {
+	
+	width: 570px;
+	border: 1px solid #D8D8D8;
+	padding: 5px;
+	font-size: 15pt;
+}
+
+.search-bar {
+	max-width: 80%;
+}
+
+.search input:focus {
+	outline: none;
+	border: 1px solid #4285F4;
+}
+
+.search button {
+	margin: 14px 7px 0 5px;
+	padding: 7px 8px;
+	border-radius: 2px;
+	border: 1px solid #D0D0D0;
+	color: #444444;
+	background-image: -moz-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: -o-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #F0F0F0));
+	background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: linear-gradient(to bottom, #F5F5F5 0%, #F0F0F0 100%);
+}
+
+.search button:hover {
+	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+
+/* End of Search */
+/* Footer */
+
+footer {
+	position: fixed;
+	bottom: 0;
+ 	height: 42px;
+ 	width: 100%;
+ 	font-size: 9.5pt;
+	background-image: -moz-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: -o-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #F0F0F0));
+	background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+	background-image: linear-gradient(to bottom, #F5F5F5 0%, #F0F0F0 100%);
+ }
+
+.footer-left {
+	float: left;
+	margin-left: 16px;
+}
+
+.footer-right {
+	float: right;
+	margin-right: 16px;
+}
+
+footer nav {
+	display: inline-block;
+	padding: 15px 0 0 0;
+}
+
+footer nav a {
+ 	padding: 3px 14px;
+ 	color: #646464;
+}
+
+footer nav a:hover {
+	color: #000000;
+}
