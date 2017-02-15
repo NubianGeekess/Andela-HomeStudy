@@ -10,35 +10,35 @@ For functions call the function and pass in true as an argument and return it.
 */
 var myApp = {
 
-	dataTypes: function (data){
-				var answer;
-				//Check if Data type is String
-				if(typeof(data) === 'string'){
-						answer = data.length;
-				//Check if Data type is NUll or Undefined
-				}else if(data === undefined || data === null){
-						answer = "no value";
-						//Check if Data type is Boolean
-				}else if(typeof(data) === 'boolean'){
-					answer = data;
-					//Check if Data type is number
-				}else if(typeof(data) === 'number'){
-					if(data < 100){
-						answer = "less than 100";
-					}else if(data > 100){
-						answer =  "more than 100";
-					}else{ answer = "equal to 100";}
-					//Check if Data type is Array
-				}else if (Array.isArray(data)){
-					data.length >= 2 ? answer = data[2] : answer = undefined;
-					//Check if Data type is a function
-				}else if(typeof(data) === 'function'){
-					answer = data(true);
-				}else{
-					answer = "please input a valid data type"
-				}
-				return answer;
-	} 
+  dataTypes: function (data) {
+    var answer;
+    //Check if Data type is String
+    if (typeof (data) === 'string') {
+      answer = data.length;
+      //Check if Data type is NUll or Undefined
+    } else if (data === undefined || data === null) {
+      answer = "no value";
+      //Check if Data type is Boolean
+    } else if (typeof (data) === 'boolean') {
+      answer = data;
+      //Check if Data type is number
+    } else if (typeof (data) === 'number') {
+      if (data < 100) {
+        answer = "less than 100";
+      } else if (data > 100) {
+        answer = "more than 100";
+      } else { answer = "equal to 100"; }
+      //Check if Data type is Array
+    } else if (Array.isArray(data)) {
+      data.length >= 2 ? answer = data[2] : answer = undefined;
+      //Check if Data type is a function
+    } else if (typeof (data) === 'function') {
+      answer = data(true);
+    } else {
+      answer = "please input a valid data type"
+    }
+    return answer;
+  }
 
 }
 
