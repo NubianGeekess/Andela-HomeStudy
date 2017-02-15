@@ -18,27 +18,27 @@ var myApp = {
         //Set the number to start sieving the array from
         //2 is the default sieve starting value
         if (!n) n = 2;
-        var listB = [];
+        var tempArr = [];
         //Loop through the array and remove factors of n
         list.forEach(function (i) {
           if (i === n || i % n) {
-            listB.push(i);
+            tempArr.push(i);
           }
         });
         var y;
         //set y to the next bigger value after n
-        for (var i = 0; i < listB.length; i++) {
-          if (listB[i] > n) {
-            y = listB[i];
+        for (var i = 0; i < tempArr.length; i++) {
+          if (tempArr[i] > n) {
+            y = tempArr[i];
             break;
           }
         }
         //if the final array if y is true
         if (!y) {
-          return listB;
+          return tempArr;
         }
         //if y is false sieve through the array again with a bigger value of y
-        return sieve(listB, y);
+        return sieve(tempArr, y);
       };
       var arr = [];
       for (var i = 2; i <= max; i++) {
