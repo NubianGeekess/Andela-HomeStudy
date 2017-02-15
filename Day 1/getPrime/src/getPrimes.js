@@ -11,34 +11,33 @@ var myApp = {
   getPrimes: function (max) {
 
     //*******USING SEIVE OF ERATOSTHENES*******
+    var answer;
     if (typeof (max) === 'number' && max >= 2) {
-      var arr = [];
-      var newArray = [];
-      var answer;
-
-      // Set all elements between 0 to max in the array to true 
-      for (var i = 0; i <= max; i++) {
-        arr.push(true);
-      }
-
-      // Sieve the Two's and Sieve the Three's, The Sieve of Eratosthenes.
-      //When the multiples sublime,The numbers that remain are Prime.
-      //The best way to explain this for loop is the poem above.
-      for (var i = 2; i <= Math.sqrt(max); i++) {
-        for (var j = i * i; j <= max; j += i) {
-          arr[j] = false;
+      var sieve = function (list, n) {
+        if (!n) n = 2;
+        var listB = [];
+        list.forEach(function (i) {
+          if (i === n || i % n) {
+            listB.push(i);
+          }
+        });
+        var y;
+        for (var i = 0; i < listB.length; i++) {
+          if (listB[i] > n) {
+            y = listB[i];
+            break;
+          }
         }
-      }
-
-      //For every true element in the array push the index value to a new array 
-      //E.g [true,false,true] == [0,2], Only th true indexes are pushed
+        if (!y) {
+          return listB;
+        }
+        return sieve(listB, y);
+      };
+      var arr = [];
       for (var i = 2; i <= max; i++) {
-        //if (arr[i]) {
-          newArray.push(i);
-        //}
+        arr[i] = i;
       }
-
-      answer = newArray;
+      answer = sieve(arr);
     } else if (typeof (max) === 'number' && max < 2) {
       answer = "Your max number must be greater than 1"
     } else {
