@@ -14,7 +14,7 @@ var request = require('request');
 var readline = require('readline');
 
 //My Personal authorizaton token
-var apiToken = 'b91b5fdaa822ddf3291899041b301bdf5ebcb63d';
+var apiToken = '208f81439ca3f8acb6f71bfdbecd1184534b3391 ';
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -95,6 +95,7 @@ rl.question('Enter your github username: ', function (username) {
                         'Authorization': 'token ' + apiToken
                       }
                     }
+                    rl.close();
 
                     //Makes DELETE request to repos/:Username/:repoName
                     request.delete(options, function (error, response, body) {
@@ -104,7 +105,6 @@ rl.question('Enter your github username: ', function (username) {
                         console.log('Error === ' + error);
                       }
                     })
-                    rl.close();
                   });
                 }
               });
